@@ -1,0 +1,8 @@
+{
+  "name": "MotionDesignCurtain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rkmd77/MotionDesignCurtain.git",
+  "author": "rkmd77 <rochenz@outlook.com>",
+  "license": "MIT"
+}
