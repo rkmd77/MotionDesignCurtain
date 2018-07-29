@@ -1,0 +1,146 @@
+openapi: 3.0.1
+info:
+  title: Fully functional curtain ordering website
+  version: '1'
+servers:
+  - url: 'http://localhost:8181'
+paths:
+  /data:
+    get:
+      summary: Return the previously stored data
+      operationId: getData
+      responses:
+        '200':
+          description: Successful response from previous POST
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  
+        '204':
+          description: Nothing has been stored in the server
+    post:
+      summary: Save curtain order data to the server
+      description: This endpoint will receive any data which can subsequently be served by GET /data
+      operationId: receiveData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDto'
+      responses:
+        '200':
+          description: Updated
+  /suburbs:
+    get:
+      summary: Get the list of available suburbs
+      operationId: getSuburbs
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SuburbDto'
+  /colours:
+    get:
+      summary: Get the list of available colours
+      operationId: getColours
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ColourDto'
+  /materials:
+    get:
+      summary: Get the list of available materials
+      operationId: getMaterials
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MaterialDto'
+components:
+  schemas:
+    MaterialDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+    SuburbDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        city:
+          type: string
+    ColourDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        red:
+          type: integer
+          format: int32
+        green:
+          type: integer
+          format: int32
+        blue:
+          type: integer
+          format: int32
+    ProductDto:
+      allOf:
+        - $ref: '#/components/schemas/RoomDto'
+        - type: object
+          properties:
+              customer:
+                type: string
+              suburb:
+                type: integer
+              material:
+                type: integer
+              colour:
+                type: integer
+              _id:
+                type: integer
+    RoomDto:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: uuid
+          length:
+            type: string
+          notes:
+            type: string
+          pleats:
+            type: string
+          room:
+            type: string
+          style:
+            type: string
+          width:
+            type: string

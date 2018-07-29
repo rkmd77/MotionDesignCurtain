@@ -1,0 +1,32 @@
+{
+	"list": [{
+		"id": 10,
+		"room": "live room 1",
+		"length": "11",
+		"width": "21",
+		"pleats": "Single",
+		"style": "Curtain",
+		"notes": "I would like then in rose red please"
+	}, {
+		"id": 11,
+		"room": "live room 2",
+		"length": "12",
+		"width": "22",
+		"pleats": "Double",
+		"style": "Curtain",
+		"notes": "green please"
+	}, {
+		"id": 12,
+		"room": "live room 3",
+		"length": "13",
+		"width": "23",
+		"pleats": "Single",
+		"style": "Blind",
+		"notes": "yellow please, thanks"
+	}],
+	"_id": 0,
+	"customer": "Rick Lee",
+	"suburb": 6,
+	"material": 5,
+	"colour": 2
+}
